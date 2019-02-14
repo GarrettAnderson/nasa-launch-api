@@ -20,20 +20,23 @@ header {
   justify-content: space-between;
 }
 
-header h3 {
+header p {
   margin-left: 1rem;
+  font-size: 1.5rem;
 }
 
-header ul {
+header nav {
   display: flex;
-  list-style: none;
+  flex-direction: row;
+  align-items: center;
 }
 
-header li {
+header nav a {
+  color: #fff;
   margin-right: 1rem;
 }
 
-header li:first-child {
+header nav a:first-child {
   margin-right: 2rem;
 }
 
