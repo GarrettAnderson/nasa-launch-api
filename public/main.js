@@ -4,4 +4,15 @@ const main = () => {
   }
 }
 
+const getNasaImage = () => {
+  fetch(`https://sdg-astro-api.herokuapp.com/api/Nasa/apod`)
+    .then((resp) => resp.json())
+    // {
+    //   return resp.json()
+    // })
+    .then((image) => {
+      console.log(image)
+    })
+}
+
 document.addEventListener('DOMContentLoaded', main)
