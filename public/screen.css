@@ -11,9 +11,30 @@ body {
   min-height: 100%;
 }
 
+/* HEADER STYLES */
 header {
   background-color: #312da8;
   color: #fff;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+header h3 {
+  margin-left: 1rem;
+}
+
+header ul {
+  display: flex;
+  list-style: none;
+}
+
+header li {
+  margin-right: 1rem;
+}
+
+header li:first-child {
+  margin-right: 2rem;
 }
 
 .upcoming-launches-title {
@@ -30,6 +51,18 @@ header {
 .launch-info {
   background-color: #ededed;
   color: #212121;
+}
+
+.chevron-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.chevron-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .previous-launch {
