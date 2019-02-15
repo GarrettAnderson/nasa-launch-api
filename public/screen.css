@@ -13,7 +13,7 @@ body {
 
 /* HEADER STYLES */
 header {
-  background-color: #312da8;
+  background-color: #512da8;
   color: #fff;
   display: flex;
   flex-direction: row;
@@ -43,6 +43,20 @@ header nav a:hover {
   cursor: pointer;
 }
 /* END HEADER STYLES */
+
+/* HERO IMAGE STYLES */
+.hero-image {
+  background: url("https://apod.nasa.gov/apod/image/1902/ssportrait_vg1.jpg");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 5rem;
+}
+
+/* END HERO IMAGE STYLES */
 
 /* SHUTTLE LAUNCH DETAILS CAROUSEL */
 .upcoming-launches-title {
