@@ -52,7 +52,6 @@ header nav a:hover {
 
 /* HERO IMAGE STYLES */
 .hero-image {
-  background: url("https://apod.nasa.gov/apod/image/1902/ssportrait_vg1.jpg");
   background-size: cover;
   background-position: center;
   display: flex;
