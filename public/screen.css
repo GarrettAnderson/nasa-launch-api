@@ -23,6 +23,7 @@ header {
 header p {
   margin-left: 1rem;
   font-size: 1.5rem;
+  cursor: pointer;
 }
 
 header nav {
@@ -33,13 +34,17 @@ header nav {
 
 header nav a {
   color: #fff;
-  margin-right: 1rem;
+  padding: 1.75rem;
 }
 
-header nav a:first-child {
-  margin-right: 2rem;
+header nav a:hover {
+  background-color: #ffc107;
+  color: #212121;
+  cursor: pointer;
 }
+/* END HEADER STYLES */
 
+/* SHUTTLE LAUNCH DETAILS CAROUSEL */
 .upcoming-launches-title {
   background-color: #ffc107;
   color: #212121;
@@ -54,12 +59,53 @@ header nav a:first-child {
 .launch-info {
   background-color: #ededed;
   color: #212121;
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  padding-top: 1rem;
+  border-radius: 5px;
+}
+
+.launch-info ol {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.launch-info li section {
+  border-bottom: 0.5px solid #a9a9a9;
+}
+
+.launch-info li section p {
+  padding-left: 0.5rem;
+}
+
+.launch-info > ol > li:nth-child(3) > section {
+  border-bottom: none !important;
+}
+
+.shuttle-name {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding-left: 0.5rem;
+}
+
+.shuttle-name h3 {
+  margin-top: 0px;
 }
 
 .chevron-left {
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+
+.launch-details section {
+  display: flex;
+  align-items: center;
 }
 
 .chevron-right {
@@ -77,17 +123,48 @@ header nav a:first-child {
   background-color: #ffc107;
   color: #212121;
 }
+/* END LAUNCH DETAILS STYLES */
 
+/* MISSION STATEMENT STYLES */
 .mission-statement {
   background-color: #d1c4e9;
   color: #212121;
+  margin-top: 2rem;
+  padding-top: 0.5rem;
+  padding-bottom: 2rem;
 }
 
+.mission-statement h2 {
+  text-align: center;
+}
+
+.mission-statement p {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+/* END MISSION STATEMENT STYLES */
+
+/* FOOTER STYLES */
 footer {
-  background-color: #312da8;
+  background-color: #673ab7;
   color: #ccc;
+}
+
+footer p {
+  text-align: center;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  margin-top: 0px;
 }
 
 .fa-heart {
   color: #ffc107;
 }
+/* END FOOTER STYLES */
