@@ -21,20 +21,26 @@ header {
 }
 
 header p {
-  margin-left: 1rem;
   font-size: 1.5rem;
   cursor: pointer;
+  text-align: center;
+  margin-left: 8px;
 }
 
 header nav {
   display: flex;
-  flex-direction: row;
+}
+
+header nav ul {
+  display: flex;
   align-items: center;
+  justify-content: center;
+  list-style: none;
 }
 
 header nav a {
   color: #fff;
-  padding: 1.75rem;
+  padding: 1.75rem 1.25rem 1.68rem 1rem;
 }
 
 header nav a:hover {
@@ -53,7 +59,18 @@ header nav a:hover {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding-top: 5rem;
+}
+
+.hero-image h1 {
+  color: #fff;
+  margin-top: 10rem;
+  margin-bottom: 10rem;
+  font-size: 2rem;
+}
+
+.image-attribute {
+  text-align: center;
+  font-size: 0.75rem;
 }
 
 /* END HERO IMAGE STYLES */
@@ -62,6 +79,11 @@ header nav a:hover {
 .upcoming-launches-title {
   background-color: #ffc107;
   color: #212121;
+}
+
+.upcoming-launches-title h2 {
+  margin: 0;
+  padding: 1rem 0 1rem 0.5rem;
 }
 
 .launch-carousel {
@@ -78,6 +100,7 @@ header nav a:hover {
   width: 70%;
   padding-top: 1rem;
   border-radius: 5px;
+  margin-top: 1rem;
 }
 
 .launch-info ol {
@@ -86,6 +109,7 @@ header nav a:hover {
   list-style: none;
   padding-left: 1rem;
   padding-right: 1rem;
+  margin-top: 0;
 }
 
 .launch-info li section {
@@ -104,11 +128,11 @@ header nav a:hover {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  padding-left: 0.5rem;
 }
 
 .shuttle-name h3 {
   margin-top: 0px;
+  padding-left: 0.5rem;
 }
 
 .chevron-left {
@@ -131,11 +155,21 @@ header nav a:hover {
 .previous-launch {
   background-color: #ffc107;
   color: #212121;
+  height: 3.5rem;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  font-size: 2rem;
+  width: 3rem;
 }
 
 .next-launch {
   background-color: #ffc107;
   color: #212121;
+  height: 3.5rem;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  font-size: 2rem;
+  width: 3rem;
 }
 /* END LAUNCH DETAILS STYLES */
 
@@ -178,7 +212,7 @@ footer p {
   margin-top: 0px;
 }
 
-.fa-heart {
+/* .fa-heart {
   color: #ffc107;
-}
+} */
 /* END FOOTER STYLES */
