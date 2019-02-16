@@ -43,17 +43,26 @@ const getLaunchDetail = () => {
     })
 }
 const displayLaunchData = () => {
-  for (let i = 0; i <= shuttleLaunchDetails.length; i++) {
-    if (counter > 0 || counter < 18) {
-      return shuttleLaunchDetails[counter]
-      console.log(shuttleLaunchDetails[counter])
-    } else {
-      counter = 0
-    }
+  // for (let i = 0; i <= shuttleLaunchDetails.length; i++) {
+  if (counter > 0 || counter < 18) {
+    return shuttleLaunchDetails[counter]
+    console.log(shuttleLaunchDetails[counter])
+  } else {
+    counter = 0
+    // }
   }
 }
 const nextLaunchDetail = () => {
   counter = counter + 1
+  displayLaunchData()
+  // return shuttleLaunchDetails[counter]
+  // displayLaunchData()
+  getLaunchDetail()
+  return shuttleLaunchDetails[counter]
+}
+
+const previousLaunchDetail = () => {
+  counter = counter - 1
   // return shuttleLaunchDetails[counter]
   // displayLaunchData()
   getLaunchDetail()
@@ -82,4 +91,4 @@ const nextLaunchDetail = () => {
 
 document.addEventListener('DOMContentLoaded', main)
 document.querySelector('.next-launch').addEventListener('click', nextLaunchDetail)
-// document.querySelector('.previous-launch').addEventListener('click', previousLaunchDetail)
+document.querySelector('.previous-launch').addEventListener('click', previousLaunchDetail)
