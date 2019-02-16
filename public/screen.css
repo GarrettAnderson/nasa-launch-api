@@ -123,13 +123,13 @@ header nav a:hover {
   border-bottom: none !important;
 }
 
-.shuttle-name {
+.shuttle-name-container {
   display: flex;
   flex-direction: row;
   justify-content: center;
 }
 
-.shuttle-name h3 {
+.shuttle-name-container h3 {
   margin-top: 0px;
   padding-left: 0.5rem;
 }
@@ -159,6 +159,7 @@ header nav a:hover {
   border-bottom-right-radius: 5px;
   font-size: 2rem;
   width: 3rem;
+  cursor: pointer;
 }
 
 .next-launch {
@@ -169,6 +170,7 @@ header nav a:hover {
   border-bottom-left-radius: 5px;
   font-size: 2rem;
   width: 3rem;
+  cursor: pointer;
 }
 /* END LAUNCH DETAILS STYLES */
 
@@ -202,6 +204,11 @@ header nav a:hover {
 footer {
   background-color: #673ab7;
   color: #ccc;
+}
+
+footer a {
+  color: #ccc;
+  text-decoration: none;
 }
 
 footer p {
