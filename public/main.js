@@ -39,34 +39,56 @@ const getLaunchDetail = () => {
       document.querySelector('.launch-countdown').textContent = shuttleLaunchDetails[counter].launch_date_utc
       document.querySelector('.launch-location').textContent = shuttleLaunchDetails[counter].launch_site.site_name_long
       console.log(shuttleLaunchDetails[counter])
+      let details = shuttleData.details
+      if (details != null) {
+        document.querySelector('.launch-description').textContent = shuttleLaunchDetails[counter].details
+      } else {
+        document.querySelector('.launch-description').textContent = 'No description available yet.'
+      }
+
       // nextLaunchDetail()
     })
 }
+
 const displayLaunchData = () => {
   // for (let i = 0; i <= shuttleLaunchDetails.length; i++) {
-  if (counter > 0 || counter < 18) {
+  if (counter > 0 || counter <= 18) {
     return shuttleLaunchDetails[counter]
     console.log(shuttleLaunchDetails[counter])
   } else {
-    counter = 0
+    counter == 0
     // }
   }
 }
+
+const displayPreviousLaunchData = () => {
+  // for (let i = 18; i <= shuttleLaunchDetails.length; i--) {
+  if (counter > 18) {
+    console.log(shuttleLaunchDetails[counter])
+    return shuttleLaunchDetails[counter]
+    counter = counter - 1
+  } else {
+    return shuttleLaunchDetails[counter]
+    // }
+  }
+}
+
 const nextLaunchDetail = () => {
   counter = counter + 1
   displayLaunchData()
   // return shuttleLaunchDetails[counter]
   // displayLaunchData()
   getLaunchDetail()
-  return shuttleLaunchDetails[counter]
+  // return shuttleLaunchDetails[counter]
 }
 
 const previousLaunchDetail = () => {
   counter = counter - 1
+  displayPreviousLaunchData()
   // return shuttleLaunchDetails[counter]
   // displayLaunchData()
   getLaunchDetail()
-  return shuttleLaunchDetails[counter]
+  // return shuttleLaunchDetails[counter]
 }
 
 // attach an if else statement to reset i to 0 in order to display the first element of the array when loop completely through
