@@ -1,6 +1,7 @@
 let imageObj = []
 let shuttleLaunchDetails = []
 let counter = 0
+let launchDate = []
 
 const main = () => {
   getNasaImage()
@@ -40,15 +41,65 @@ const getLaunchDetail = () => {
       document.querySelector('.launch-location').textContent = shuttleLaunchDetails[counter].launch_site.site_name_long
       console.log(shuttleLaunchDetails[counter])
       let details = shuttleData.details
+      launchDate = shuttleLaunchDetails[counter].launch_date_utc.toString()
       if (details != null) {
         document.querySelector('.launch-description').textContent = shuttleLaunchDetails[counter].details
       } else {
         document.querySelector('.launch-description').textContent = 'No description available yet.'
       }
 
+      launchCountdown(launchDate)
       // nextLaunchDetail()
     })
 }
+
+// Set countdown
+const launchCountdown = (endDate) => {
+  let days, hours, minutes, seconds
+
+  // endDate = launchDate
+  endDate = new Date(launchDate * 1000)
+
+  // new Date(endDate).getTime()
+  console.log(endDate)
+  if (isNaN(endDate)) {
+    return
+  }
+
+  setInterval(calculate, 1000)
+
+  const calculate = () => {
+    console.log(endDate)
+    let startDate = new Date()
+    startDate = startDate.getTime()
+
+    let timeRemaining = parseInt((endDate - startDate) / 1000)
+    console.log(timeRemaining)
+
+    if (timeRemaining >= 0) {
+      days = parseInt(timeRemaining / 86400)
+      timeRemaining = timeRemaining % 86400
+
+      hours = parseInt(timeRemaining / 3600)
+      timeRemaining = timeRemaining % 3600
+
+      minutes = parseInt(timeRemaining / 60)
+      timeRemaining = timeRemaining % 60
+
+      seconds = parseInt(timeRemaining)
+
+      document.querySelector('days').textContent = parseInt(days, 10)
+      document.querySelector('hours').textContent = ('0' + hours).slice(-2)
+      document.querySelector('minutes').textContent = ('0' + minutes).slice(-2)
+      document.querySelector('seconds').textContent = ('0' + seconds).slice(-2)
+    } else {
+      return
+    }
+  }
+}
+
+// let event = new Date(shuttleLaunchDetails[counter].launch_date_utc)
+// console.log(event)
 
 const displayLaunchData = () => {
   // for (let i = 0; i <= shuttleLaunchDetails.length; i++) {
@@ -90,26 +141,6 @@ const previousLaunchDetail = () => {
   getLaunchDetail()
   // return shuttleLaunchDetails[counter]
 }
-
-// attach an if else statement to reset i to 0 in order to display the first element of the array when loop completely through
-// for (let i = 0; i < shuttleLaunchDetails.length; i++) {
-//   if (i <= 18) {
-//     i = 0
-//   } else {
-//     i++
-//     return shuttleLaunchDetails[i]
-//   }
-// }
-// }
-
-// const previousLaunchDetail = () => {
-//   // attach an if else statement to reset i to 0 in order to display the first element of the array when loop completely through
-//   i = 18
-//   document.querySelector('.shuttle-name').textContent = shuttleLaunchDetails[i].mission_name
-//   document.querySelector('.launch-description').textContent = shuttleLaunchDetails[i].details
-//   document.querySelector('.launch-countdown').textContent = shuttleLaunchDetails[i].launch_date_utc
-//   document.querySelector('.launch-location').textContent = shuttleLaunchDetails[i].launch_site.site_name_long
-// }
 
 document.addEventListener('DOMContentLoaded', main)
 document.querySelector('.next-launch').addEventListener('click', nextLaunchDetail)
