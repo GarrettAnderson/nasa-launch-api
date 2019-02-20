@@ -48,7 +48,7 @@ const getLaunchDetail = () => {
         document.querySelector('.launch-description').textContent = 'No description available yet.'
       }
 
-      launchCountdown(launchDate)
+      // launchCountdown(launchDate)
       // nextLaunchDetail()
     })
 }
@@ -58,23 +58,21 @@ const launchCountdown = (endDate) => {
   let days, hours, minutes, seconds
 
   // endDate = launchDate
-  endDate = new Date(launchDate * 1000)
+  endDate = new Date(launchDate)
 
   // new Date(endDate).getTime()
-  console.log(endDate)
+  console.log({ endDate })
   if (isNaN(endDate)) {
     return
   }
 
-  setInterval(calculate, 1000)
-
   const calculate = () => {
-    console.log(endDate)
+    console.log({ endDate })
     let startDate = new Date()
     startDate = startDate.getTime()
 
     let timeRemaining = parseInt((endDate - startDate) / 1000)
-    console.log(timeRemaining)
+    console.log({ timeRemaining })
 
     if (timeRemaining >= 0) {
       days = parseInt(timeRemaining / 86400)
@@ -87,15 +85,17 @@ const launchCountdown = (endDate) => {
       timeRemaining = timeRemaining % 60
 
       seconds = parseInt(timeRemaining)
-
-      document.querySelector('days').textContent = parseInt(days, 10)
-      document.querySelector('hours').textContent = ('0' + hours).slice(-2)
-      document.querySelector('minutes').textContent = ('0' + minutes).slice(-2)
-      document.querySelector('seconds').textContent = ('0' + seconds).slice(-2)
+      console.log({ days, hours, minutes, seconds })
+      document.querySelector('.days').textContent = parseInt(days, 10)
+      document.querySelector('.hours').textContent = ('0' + hours).slice(-2)
+      document.querySelector('.minutes').textContent = ('0' + minutes).slice(-2)
+      document.querySelector('.seconds').textContent = ('0' + seconds).slice(-2)
     } else {
       return
     }
   }
+
+  setInterval(calculate, 1000)
 }
 
 // let event = new Date(shuttleLaunchDetails[counter].launch_date_utc)
@@ -107,7 +107,7 @@ const displayLaunchData = () => {
     return shuttleLaunchDetails[counter]
     console.log(shuttleLaunchDetails[counter])
   } else {
-    counter == 0
+    counter
     // }
   }
 }
@@ -125,8 +125,21 @@ const displayPreviousLaunchData = () => {
 }
 
 const nextLaunchDetail = () => {
-  counter = counter + 1
-  displayLaunchData()
+  // put logic here for the counter condition. if counter is greater then the number of launches - shuttleLaunchDetails.length - reset the counter back to zero
+  if (counter === shuttleLaunchDetails.length - 1) {
+    counter = 0
+    console.log(shuttleLaunchDetails[counter])
+  } else {
+    counter++
+  }
+
+  // if (counter >= 0 && counter <= shuttleLaunchDetails.length) {
+  //   counter = counter + 1
+  //   console.log(shuttleLaunchDetails[counter])
+  // } else {
+  //   return (counter = 0)
+  // }
+  // displayLaunchData()
   // return shuttleLaunchDetails[counter]
   // displayLaunchData()
   getLaunchDetail()
@@ -134,8 +147,17 @@ const nextLaunchDetail = () => {
 }
 
 const previousLaunchDetail = () => {
-  counter = counter - 1
-  displayPreviousLaunchData()
+  // for (let i = 0; i <= shuttleLaunchDetails.length; i++) {
+  console.log(shuttleLaunchDetails)
+  if (counter === 0) {
+    counter = shuttleLaunchDetails.length - 1
+  } else {
+    counter--
+  }
+  // }
+
+  // counter = counter - 1
+  // displayPreviousLaunchData()
   // return shuttleLaunchDetails[counter]
   // displayLaunchData()
   getLaunchDetail()
