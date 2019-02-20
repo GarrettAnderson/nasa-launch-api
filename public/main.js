@@ -37,7 +37,8 @@ const getLaunchDetail = () => {
       // displayLaunchData()
       document.querySelector('.shuttle-name').textContent = shuttleLaunchDetails[counter].mission_name
       document.querySelector('.launch-description').textContent = shuttleLaunchDetails[counter].details
-      document.querySelector('.launch-countdown').textContent = shuttleLaunchDetails[counter].launch_date_utc
+      // document.querySelector('.days').textContent = days + ' days'
+      // document.querySelector('.launch-countdown').textContent = shuttleLaunchDetails[counter].launch_date_utc
       document.querySelector('.launch-location').textContent = shuttleLaunchDetails[counter].launch_site.site_name_long
       console.log(shuttleLaunchDetails[counter])
       let details = shuttleData.details
@@ -48,7 +49,7 @@ const getLaunchDetail = () => {
         document.querySelector('.launch-description').textContent = 'No description available yet.'
       }
 
-      // launchCountdown(launchDate)
+      launchCountdown(launchDate)
       // nextLaunchDetail()
     })
 }
@@ -85,11 +86,16 @@ const launchCountdown = (endDate) => {
       timeRemaining = timeRemaining % 60
 
       seconds = parseInt(timeRemaining)
-      console.log({ days, hours, minutes, seconds })
-      document.querySelector('.days').textContent = parseInt(days, 10)
-      document.querySelector('.hours').textContent = ('0' + hours).slice(-2)
-      document.querySelector('.minutes').textContent = ('0' + minutes).slice(-2)
-      document.querySelector('.seconds').textContent = ('0' + seconds).slice(-2)
+      let daysLeft = { days, hours, minutes, seconds }
+      console.log(daysLeft.days)
+      document.querySelector('.days').textContent = days + ' Days '
+      // document.querySelector('.days').textContent = hours
+      document.querySelector('.hours').textContent = hours + ' Hours '
+      document.querySelector('.minutes').textContent = minutes + ' Minutes '
+      document.querySelector('.seconds').textContent = seconds + ' Seconds '
+      // document.querySelector('.hours').textContent = ('0' + hours).slice(-2)
+      // document.querySelector('.minutes').textContent = ('0' + minutes).slice(-2)
+      // document.querySelector('.seconds').textContent = ('0' + seconds).slice(-2)
     } else {
       return
     }
