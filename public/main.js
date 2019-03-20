@@ -49,7 +49,7 @@ const getLaunchDetail = () => {
         document.querySelector('.launch-description').textContent = 'No description available yet.'
       }
 
-      launchCountdown(launchDate)
+      // launchCountdown(launchDate)
       // nextLaunchDetail()
     })
 }
